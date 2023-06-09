@@ -46,7 +46,10 @@ const WeatherApp = () => {
   }, [city]);
 
   const getWeatherClass = () => {
-    if (detailedForecast.includes("rain")) {
+    if (
+      detailedForecast.includes("rain") ||
+      detailedForecast.includes("showers")
+    ) {
       return { weatherBackgroundClass: "rainy", weatherAnimationClass: "rain" };
     } else if (detailedForecast.includes("snow")) {
       return { weatherBackgroundClass: "snowy", weatherAnimationClass: "snow" };

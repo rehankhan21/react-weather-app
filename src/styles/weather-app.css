@@ -1,0 +1,147 @@
+.weather-app {
+  background-color: #fff;
+  color: #333;
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  text-align: center;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.weather-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.location {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.datetime {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+
+.temperature {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.description {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.weather-icon {
+  width: 100px;
+  height: 100px;
+  transition: transform 0.5s ease-in-out;
+}
+
+.weather-icon.rainy {
+  animation: rain 1s infinite linear;
+}
+
+.weather-icon.snowy {
+  animation: snow 1s infinite linear;
+}
+
+.weather-icon.cloudy {
+  animation: clouds 1s infinite linear;
+}
+
+.weather-icon.sunny {
+  animation: sun 1s infinite linear;
+}
+
+.weather-icon.hazy {
+  animation: haze 1s infinite linear;
+}
+
+@keyframes rain {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes snow {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes clouds {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(5px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes sun {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes haze {
+  0% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0.6;
+  }
+}
+
+.weather-app.rainy {
+  background: linear-gradient(to bottom, #768fa5, #a3b1c2);
+}
+
+.weather-app.snowy {
+  background: linear-gradient(to bottom, #c1d7e5, #f7fbff);
+}
+
+.weather-app.cloudy {
+  background: linear-gradient(to bottom, #c9d4de, #e3e9ef);
+}
+
+.weather-app.sunny {
+  background: linear-gradient(to bottom, #ffbe6b, #ffeead);
+}
+
+.weather-app.hazy {
+  /* animation: haze 1s infinite linear;
+  background: rgba(0, 0, 0, 0.5);*/
+  background: linear-gradient(to bottom, #d3d2d3, #c9caca);
+}

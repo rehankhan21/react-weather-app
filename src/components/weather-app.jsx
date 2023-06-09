@@ -73,32 +73,32 @@ const WeatherApp = () => {
   if (city === "") return <p className="weather-app">Loading...</p>;
 
   return (
-    <dvi className={getWeatherClass().weatherAnimationClass}>
-      <div
-        className={`weather-app ${getWeatherClass().weatherBackgroundClass}`}
-      >
-        <h1 className="app-title">Weather App</h1>
-        <div className="weather-info">
-          <h2 className="location">
-            {city}, {state}
-          </h2>
-          <h3 className="datetime">
-            {dayOfWeek}, {timeOfDay}
-          </h3>
-          <WeatherIcon
-            url={icon}
-            animationClass={getWeatherClass().weatherBackgroundClass}
-          />
-          <h2 className="temperature">{temp}</h2>
-          <p>{shortForecast}</p>
-          <div className="text-box-container round shadow--sm">
-            <p className=" text-box text-shadow--sm font--25">
-              {detailedForecast}
-            </p>
-          </div>
+    <div
+      className={`weather-app ${getWeatherClass().weatherBackgroundClass} ${
+        getWeatherClass().weatherAnimationClass
+      }`}
+    >
+      <h1 className="app-title">Weather App</h1>
+      <div className="weather-info">
+        <h2 className="location">
+          {city}, {state}
+        </h2>
+        <h3 className="datetime">
+          {dayOfWeek}, {timeOfDay}
+        </h3>
+        <WeatherIcon
+          url={icon}
+          animationClass={getWeatherClass().weatherBackgroundClass}
+        />
+        <h2 className="temperature">{temp}</h2>
+        <p>{shortForecast}</p>
+        <div className="text-box-container round shadow--sm">
+          <p className=" text-box text-shadow--sm font--25">
+            {detailedForecast}
+          </p>
         </div>
       </div>
-    </dvi>
+    </div>
   );
 };
 

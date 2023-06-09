@@ -171,14 +171,15 @@ $text-box-border-radius: 5px;
 }
 
 .text-box {
-  width: 300px;
+  max-width: 300px;
+  width: auto;
   height: auto;
 }
 
 .rain {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -226,7 +227,7 @@ $text-box-border-radius: 5px;
 .fog {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: auto;
   overflow: hidden;
 }
 
@@ -254,7 +255,7 @@ $text-box-border-radius: 5px;
 .snow {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: auto;
   overflow: hidden;
 }
 

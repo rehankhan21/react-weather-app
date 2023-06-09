@@ -25,13 +25,12 @@ const WeatherApp = () => {
         .then((response) => {
           setCity(response.data.properties.relativeLocation.properties.city);
           setState(response.data.properties.relativeLocation.properties.state);
-          setDayOfWeek(moment().format("dddd")); // This gets the current day of the week
-          setTimeOfDay(moment().format("LT")); // This gets the current time
+          setDayOfWeek(moment().format("dddd")); // uses Moment to get current day
+          setTimeOfDay(moment().format("LT")); // uses Moment to get current time
 
           axios
             .get(`${response.data.properties.forecast}`)
             .then((response) => {
-              console.log(response);
               setTemp(
                 response.data.properties.periods[0].temperature +
                   "°" +
@@ -53,7 +52,7 @@ const WeatherApp = () => {
           console.error("Error fetching relative location data:", error);
         });
     });
-  }, []); // Empty dependency array means this effect will only run once
+  }, [city]);
 
   const getWeatherAnimationClass = () => {
     if (detailedForecast.includes("Rain")) {
@@ -71,6 +70,8 @@ const WeatherApp = () => {
     }
   };
 
+  if (city === "") return <p className="weather-app">Loading...</p>;
+
   return (
     <div className={`weather-app ${getWeatherAnimationClass()}`}>
       <h1 className="app-title">Weather App</h1>
@@ -81,11 +82,14 @@ const WeatherApp = () => {
         <h3 className="datetime">
           {dayOfWeek}, {timeOfDay}
         </h3>
-        {/* <img src={icon} alt="weather icon" /> */}
         <WeatherIcon url={icon} animationClass={getWeatherAnimationClass()} />
         <h2 className="temperature">{temp}</h2>
         <p>{shortForecast}</p>
-        <p className="description">{detailedForecast}</p>
+        <div className="text-box-container round shadow--sm">
+          <p className=" text-box text-shadow--sm font--25">
+            {detailedForecast}
+          </p>
+        </div>
       </div>
     </div>
   );

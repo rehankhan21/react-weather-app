@@ -1,5 +1,3 @@
-# View the App here: https://codesandbox.io/p/github/rehankhan21/react-weather-app/draft/green-snow?file=/src/components/weather-app.jsx:66,22&workspaceId=b470490d-6387-4432-ac35-6b5f00e248d3
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).

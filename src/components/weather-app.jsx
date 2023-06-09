@@ -54,17 +54,17 @@ const WeatherApp = () => {
     });
   }, [city]);
 
-  const getWeatherAnimationClass = () => {
+  const getWeatherClass = () => {
     if (detailedForecast.includes("Rain")) {
-      return "rainy";
+      return { weatherBackgroundClass: "rainy", weatherAnimationClass: "rain" };
     } else if (detailedForecast.includes("Snow")) {
-      return "snowy";
+      return { weatherBackgroundClass: "snowy", weatherAnimationClass: "snow" };
     } else if (detailedForecast.includes("Cloud")) {
-      return "cloudy";
+      return { weatherBackgroundClass: "cloudy", weatherAnimationClass: "fog" };
     } else if (detailedForecast.includes("Clear")) {
-      return "sunny";
+      return { weatherBackgroundClass: "sunny", weatherAnimationClass: "sun" };
     } else if (detailedForecast.includes("Haze")) {
-      return "hazy";
+      return { weatherBackgroundClass: "hazy", weatherAnimationClass: "fog" };
     } else {
       return "";
     }
@@ -73,25 +73,32 @@ const WeatherApp = () => {
   if (city === "") return <p className="weather-app">Loading...</p>;
 
   return (
-    <div className={`weather-app ${getWeatherAnimationClass()}`}>
-      <h1 className="app-title">Weather App</h1>
-      <div className="weather-info">
-        <h2 className="location">
-          {city}, {state}
-        </h2>
-        <h3 className="datetime">
-          {dayOfWeek}, {timeOfDay}
-        </h3>
-        <WeatherIcon url={icon} animationClass={getWeatherAnimationClass()} />
-        <h2 className="temperature">{temp}</h2>
-        <p>{shortForecast}</p>
-        <div className="text-box-container round shadow--sm">
-          <p className=" text-box text-shadow--sm font--25">
-            {detailedForecast}
-          </p>
+    <dvi className={getWeatherClass().weatherAnimationClass}>
+      <div
+        className={`weather-app ${getWeatherClass().weatherBackgroundClass}`}
+      >
+        <h1 className="app-title">Weather App</h1>
+        <div className="weather-info">
+          <h2 className="location">
+            {city}, {state}
+          </h2>
+          <h3 className="datetime">
+            {dayOfWeek}, {timeOfDay}
+          </h3>
+          <WeatherIcon
+            url={icon}
+            animationClass={getWeatherClass().weatherBackgroundClass}
+          />
+          <h2 className="temperature">{temp}</h2>
+          <p>{shortForecast}</p>
+          <div className="text-box-container round shadow--sm">
+            <p className=" text-box text-shadow--sm font--25">
+              {detailedForecast}
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    </dvi>
   );
 };
 

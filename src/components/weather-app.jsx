@@ -46,15 +46,15 @@ const WeatherApp = () => {
   }, [city]);
 
   const getWeatherClass = () => {
-    if (detailedForecast.includes("Rain")) {
+    if (detailedForecast.includes("rain")) {
       return { weatherBackgroundClass: "rainy", weatherAnimationClass: "rain" };
-    } else if (detailedForecast.includes("Snow")) {
+    } else if (detailedForecast.includes("snow")) {
       return { weatherBackgroundClass: "snowy", weatherAnimationClass: "snow" };
-    } else if (detailedForecast.includes("Cloud")) {
+    } else if (detailedForecast.includes("cloud")) {
       return { weatherBackgroundClass: "cloudy", weatherAnimationClass: "fog" };
-    } else if (detailedForecast.includes("Clear")) {
+    } else if (detailedForecast.includes("clear")) {
       return { weatherBackgroundClass: "sunny", weatherAnimationClass: "sun" };
-    } else if (detailedForecast.includes("Haze")) {
+    } else if (detailedForecast.includes("haze")) {
       return { weatherBackgroundClass: "hazy", weatherAnimationClass: "fog" };
     } else {
       return { weatherBackgroundClass: "", weatherAnimationClass: "" };
